@@ -11,7 +11,13 @@ export async function fetchCatFacts(): Promise<string | undefined> {
           API_URL_STRING,
         );
 
-        resolve(apiReturnValue.fact);
+        if (typeof apiReturnValue === 'string') {
+          const convertStringToJson = JSON.parse(apiReturnValue);
+
+          resolve(convertStringToJson.fact);
+        } else {
+          resolve(apiReturnValue.fact);
+        }
       } catch (error) {
         reject(error);
       }

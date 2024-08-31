@@ -18,7 +18,9 @@ target 'sleepingduck' do
   config = use_native_modules!
   
   pod 'CatFactsApi', :path => '../src/native/CatFactsApi/ios/CatFactsApi.podspec'
-
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+    
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.

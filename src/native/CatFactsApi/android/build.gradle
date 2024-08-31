@@ -1,0 +1,16 @@
+apply plugin: 'com.android.library'
+apply plugin: "org.jetbrains.kotlin.android"
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        namespace "com.catfactsapi"
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native'
+}
