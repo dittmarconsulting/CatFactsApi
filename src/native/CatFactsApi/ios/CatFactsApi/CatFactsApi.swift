@@ -4,7 +4,11 @@ import React
 @objc(CatFactsApi)
 class CatFactsApi: NSObject {
 
-  @objc
+  @objc static func requiresMainQueueSetup() -> Bool {
+    return false // Return true if you need to interact with UI or other main-thread-bound APIs
+  }
+
+  @objc(getValue:withResolver:withRejecter:)
   func getValue(
     _ apiUrl: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock
   ) {
