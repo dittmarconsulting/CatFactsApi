@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Pressable,
   Text,
@@ -9,11 +9,12 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
+import { API_URL_STRING } from '../../constants/globals';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Section from '../../components/Section/Section';
 import styles from './Home.styles';
-import {fetchCatFacts} from './Home.utils';
+import fetchCatFacts from '../../native/CatFactsApi/CatFactsApi';
 
 function Home(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
@@ -28,7 +29,7 @@ function Home(): React.JSX.Element {
     try {
       setLoading(true);
 
-      const apiResponse = await fetchCatFacts();
+      const apiResponse = await fetchCatFacts(API_URL_STRING);
 
       apiResponse && setCatFact(apiResponse);
 
