@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, useColorScheme, View} from 'react-native';
-import {SectionProps} from './Section.interface';
+import { Text, useColorScheme, View } from 'react-native';
+import { SectionProps } from './Section.interface';
 import styles from './Section.styles';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

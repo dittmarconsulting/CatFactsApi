@@ -14,7 +14,7 @@ import { API_URL_STRING } from '../../constants/globals';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Section from '../../components/Section/Section';
 import styles from './Home.styles';
-import fetchCatFacts from '../../native/CatFactsApi/CatFactsApi';
+import CatFactsApi from '../../native/CatFactsApi/CatFactsApi';
 
 function Home(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
@@ -29,13 +29,12 @@ function Home(): React.JSX.Element {
     try {
       setLoading(true);
 
-      const apiResponse = await fetchCatFacts(API_URL_STRING);
+      const apiResponse = await CatFactsApi.fetchCatFacts(API_URL_STRING);
 
-      apiResponse && setCatFact(apiResponse);
-
-      setLoading(false);
+      apiResponse && setCatFact(apiResponse.fact);
     } catch (error) {
       console.log('There was an error getting data from API', error);
+    } finally {
       setLoading(false);
     }
   }
